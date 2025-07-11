@@ -1096,12 +1096,12 @@
         
         // Initialize Google Map
         function initMap() {
-            // Norma Hertzog Community Center coordinates
-            const venueLocation = { lat: 33.641281, lng: -117.921776 };
+            // Norma Hertzog Community Center CORRECTED coordinates
+            const venueLocation = { lat: 33.641621, lng: -117.921107 };
             
-            // Create map centered on venue
+            // Create map centered on venue with better zoom
             const map = new google.maps.Map(document.getElementById('parking-map'), {
-                zoom: 17,
+                zoom: 18,
                 center: venueLocation,
                 mapTypeControl: true,
                 mapTypeControlOptions: {
@@ -1132,50 +1132,50 @@
                 venueInfo.open(map, venueMarker);
             });
             
-            // Define parking zones with different colors - CORRECTED COORDINATES
+            // Define parking zones with corrected coordinates based on actual street locations
             const parkingZones = [
                 {
                     name: 'Zone 1: Park Ave (Best - Right in Front)',
                     color: '#4CAF50',
                     paths: [
-                        // Park Ave between 18th and 19th Streets (along venue)
-                        { lat: 33.640400, lng: -117.921850 },  // 18th & Park
-                        { lat: 33.640400, lng: -117.921750 },  // East side of street
-                        { lat: 33.642200, lng: -117.921750 },  // 19th & Park east
-                        { lat: 33.642200, lng: -117.921850 }   // 19th & Park west
+                        // Park Ave directly in front of venue
+                        { lat: 33.640821, lng: -117.921157 },  // South end
+                        { lat: 33.640821, lng: -117.921057 },  // East side
+                        { lat: 33.642421, lng: -117.921057 },  // North end
+                        { lat: 33.642421, lng: -117.921157 }   // West side
                     ]
                 },
                 {
-                    name: 'Zone 2: 18th Street (Very Good)',
+                    name: 'Zone 2: W 18th Street',
                     color: '#2196F3',
                     paths: [
-                        // 18th Street from Park Ave to Monrovia
-                        { lat: 33.640300, lng: -117.921800 },  // Park & 18th
-                        { lat: 33.640400, lng: -117.921800 },  // North side
-                        { lat: 33.640400, lng: -117.920700 },  // Monrovia & 18th
-                        { lat: 33.640300, lng: -117.920700 }   // South side
+                        // W 18th Street near venue
+                        { lat: 33.640771, lng: -117.921107 },  // Park Ave end
+                        { lat: 33.640821, lng: -117.921107 },  // North side
+                        { lat: 33.640821, lng: -117.920207 },  // East end
+                        { lat: 33.640771, lng: -117.920207 }   // South side
                     ]
                 },
                 {
-                    name: 'Zone 3: 19th Street (Good Alternative)',
+                    name: 'Zone 3: W 19th Street',
                     color: '#FF9800',
                     paths: [
-                        // 19th Street west of Park Ave
-                        { lat: 33.642100, lng: -117.921800 },  // Park & 19th
-                        { lat: 33.642200, lng: -117.921800 },  // North side
-                        { lat: 33.642200, lng: -117.922800 },  // West end
-                        { lat: 33.642100, lng: -117.922800 }   // South side
+                        // W 19th Street near venue
+                        { lat: 33.642471, lng: -117.921107 },  // Park Ave end
+                        { lat: 33.642521, lng: -117.921107 },  // North side
+                        { lat: 33.642521, lng: -117.922207 },  // West end
+                        { lat: 33.642471, lng: -117.922207 }   // South side
                     ]
                 },
                 {
-                    name: 'Zone 4: Monrovia Ave (Backup)',
+                    name: 'Zone 4: Monrovia Ave',
                     color: '#9C27B0',
                     paths: [
-                        // Monrovia Ave between 18th and 19th
-                        { lat: 33.640400, lng: -117.920750 },  // 18th & Monrovia
-                        { lat: 33.640400, lng: -117.920650 },  // East side
-                        { lat: 33.642100, lng: -117.920650 },  // 19th & Monrovia
-                        { lat: 33.642100, lng: -117.920750 }   // West side
+                        // Monrovia Ave as backup
+                        { lat: 33.640821, lng: -117.920157 },  // 18th St end
+                        { lat: 33.640821, lng: -117.920057 },  // East side
+                        { lat: 33.642471, lng: -117.920057 },  // 19th St end
+                        { lat: 33.642471, lng: -117.920157 }   // West side
                     ]
                 }
             ];
