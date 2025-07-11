@@ -1132,46 +1132,50 @@
                 venueInfo.open(map, venueMarker);
             });
             
-            // Define parking zones with different colors
+            // Define parking zones with different colors - CORRECTED COORDINATES
             const parkingZones = [
                 {
-                    name: 'Zone 1: Park Ave (Best)',
+                    name: 'Zone 1: Park Ave (Best - Right in Front)',
                     color: '#4CAF50',
                     paths: [
-                        { lat: 33.642080, lng: -117.921900 },
-                        { lat: 33.640480, lng: -117.921650 },
-                        { lat: 33.640510, lng: -117.921550 },
-                        { lat: 33.642110, lng: -117.921800 }
+                        // Park Ave between 18th and 19th Streets (along venue)
+                        { lat: 33.640400, lng: -117.921850 },  // 18th & Park
+                        { lat: 33.640400, lng: -117.921750 },  // East side of street
+                        { lat: 33.642200, lng: -117.921750 },  // 19th & Park east
+                        { lat: 33.642200, lng: -117.921850 }   // 19th & Park west
                     ]
                 },
                 {
-                    name: 'Zone 2: 18th Street',
+                    name: 'Zone 2: 18th Street (Very Good)',
                     color: '#2196F3',
                     paths: [
-                        { lat: 33.640350, lng: -117.922800 },
-                        { lat: 33.640350, lng: -117.920800 },
-                        { lat: 33.640450, lng: -117.920800 },
-                        { lat: 33.640450, lng: -117.922800 }
+                        // 18th Street from Park Ave to Monrovia
+                        { lat: 33.640300, lng: -117.921800 },  // Park & 18th
+                        { lat: 33.640400, lng: -117.921800 },  // North side
+                        { lat: 33.640400, lng: -117.920700 },  // Monrovia & 18th
+                        { lat: 33.640300, lng: -117.920700 }   // South side
                     ]
                 },
                 {
-                    name: 'Zone 3: 19th Street',
+                    name: 'Zone 3: 19th Street (Good Alternative)',
                     color: '#FF9800',
                     paths: [
-                        { lat: 33.642200, lng: -117.922800 },
-                        { lat: 33.642200, lng: -117.921000 },
-                        { lat: 33.642300, lng: -117.921000 },
-                        { lat: 33.642300, lng: -117.922800 }
+                        // 19th Street west of Park Ave
+                        { lat: 33.642100, lng: -117.921800 },  // Park & 19th
+                        { lat: 33.642200, lng: -117.921800 },  // North side
+                        { lat: 33.642200, lng: -117.922800 },  // West end
+                        { lat: 33.642100, lng: -117.922800 }   // South side
                     ]
                 },
                 {
-                    name: 'Zone 4: Monrovia Ave',
+                    name: 'Zone 4: Monrovia Ave (Backup)',
                     color: '#9C27B0',
                     paths: [
-                        { lat: 33.642200, lng: -117.920650 },
-                        { lat: 33.640350, lng: -117.920400 },
-                        { lat: 33.640380, lng: -117.920300 },
-                        { lat: 33.642230, lng: -117.920550 }
+                        // Monrovia Ave between 18th and 19th
+                        { lat: 33.640400, lng: -117.920750 },  // 18th & Monrovia
+                        { lat: 33.640400, lng: -117.920650 },  // East side
+                        { lat: 33.642100, lng: -117.920650 },  // 19th & Monrovia
+                        { lat: 33.642100, lng: -117.920750 }   // West side
                     ]
                 }
             ];
@@ -1200,7 +1204,7 @@
             
             // Add parking spot markers
             const parkingSpots = [
-                { lat: 33.640914, lng: -117.922373, name: 'AirGarage Paid Parking', icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png' }
+                { lat: 33.642400, lng: -117.923200, name: 'AirGarage Paid Parking - 420 W 19th St', icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png' }
             ];
             
             parkingSpots.forEach(spot => {
