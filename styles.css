@@ -465,6 +465,223 @@ footer {
     }
 }
 
+/* Past Shows Section */
+.past-shows-content {
+    margin-top: 1rem;
+}
+
+.show-highlights,
+.past-presenters,
+.sccpe-history {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.show-highlights h3,
+.past-presenters h3,
+.sccpe-history h3 {
+    color: #2c5f2d;
+    margin-bottom: 1rem;
+}
+
+/* Expert Tips Section */
+.expert-tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.pro-tips {
+    background: #e8f5e9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #4caf50;
+}
+
+.pro-tips h3 {
+    color: #1b5e20;
+    margin-bottom: 1rem;
+}
+
+/* Vendor Section */
+.vendor-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.vendor-category {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.vendor-category h4 {
+    color: #2c5f2d;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-guide,
+.payment-info {
+    background: #fff8e1;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    border: 1px solid #ffecb3;
+}
+
+.pricing-guide h3,
+.payment-info h3 {
+    color: #f57c00;
+    margin-bottom: 1rem;
+}
+
+/* Costa Mesa Section */
+.attractions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.attraction-category {
+    background: #f0f7f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #c8e6c9;
+}
+
+.attraction-category h4 {
+    color: #1b5e20;
+    margin-bottom: 0.75rem;
+}
+
+.weekend-itinerary {
+    background: #e3f2fd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    border: 1px solid #90caf9;
+}
+
+.weekend-itinerary h3 {
+    color: #1565c0;
+    margin-bottom: 1rem;
+}
+
+.weekend-itinerary h4 {
+    color: #1976d2;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.local-tips {
+    background: #fafafa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-top: 3px solid #4a8652;
+}
+
+.local-tips h3 {
+    color: #2c5f2d;
+    margin-bottom: 1rem;
+}
+
+/* Mobile adjustments for new sections */
+@media (max-width: 768px) {
+    .expert-tips-grid,
+    .vendor-types,
+    .attractions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .show-highlights,
+    .past-presenters,
+    .sccpe-history,
+    .pro-tips,
+    .vendor-category,
+    .pricing-guide,
+    .payment-info,
+    .attraction-category,
+    .weekend-itinerary,
+    .local-tips {
+        padding: 1rem;
+    }
+}
+
+/* Mistakes Section */
+.mistakes-content {
+    margin-top: 1rem;
+}
+
+.mistake-category {
+    background: #ffebee;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #f44336;
+    margin-bottom: 1.5rem;
+}
+
+.mistake-category h3 {
+    color: #c62828;
+    margin-bottom: 1rem;
+}
+
+.success-tips {
+    background: #e8f5e9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px solid #4caf50;
+    margin-top: 2rem;
+}
+
+.success-tips h3 {
+    color: #2e7d32;
+    margin-bottom: 1rem;
+}
+
+/* Quick Reference Section */
+.quick-ref-content {
+    background: #fffde7;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px dashed #f9a825;
+}
+
+.quick-ref-content h3 {
+    color: #f57f17;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.ref-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ref-item h4 {
+    color: #2c5f2d;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.ref-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
 /* Print Styles */
 @media print {
     nav,
