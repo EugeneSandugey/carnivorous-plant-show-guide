@@ -21,7 +21,7 @@ A comprehensive guide for the Southern California Carnivorous Plant Enthusiasts 
 
 ## Viewing the Site
 
-Visit the live site at: [GitHub Pages URL will be added after deployment]
+Visit the live site at: https://eugenesandugey.github.io/carnivorous-plant-show-guide/
 
 ## Local Development
 
