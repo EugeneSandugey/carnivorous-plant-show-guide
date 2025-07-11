@@ -19,7 +19,12 @@
     </header>
 
     <nav>
-        <ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
             <li><a href="#event-details">Event Details</a></li>
             <li><a href="#directions">Directions</a></li>
             <li><a href="#parking">Parking</a></li>
@@ -286,5 +291,24 @@
             <p>Not affiliated with SCCPE or Norma Hertzog Community Center</p>
         </div>
     </footer>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+            menuToggle.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                menuToggle.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
