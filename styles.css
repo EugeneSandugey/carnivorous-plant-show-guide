@@ -896,6 +896,175 @@ nav a:hover {
     color: white;
 }
 
+/* Parking Section Styles */
+.parking-intro {
+    background: #fff3e0;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #ff9800;
+    margin-bottom: 1rem;
+}
+
+.parking-zones {
+    margin: 2rem 0;
+}
+
+.parking-zone {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 5px solid;
+}
+
+.parking-zone.priority-1 {
+    border-color: #4CAF50;
+    background: #e8f5e9;
+}
+
+.parking-zone.priority-2 {
+    border-color: #2196F3;
+    background: #e3f2fd;
+}
+
+.parking-zone.priority-3 {
+    border-color: #FF9800;
+    background: #fff3e0;
+}
+
+.parking-zone.priority-4 {
+    border-color: #9C27B0;
+    background: #f3e5f5;
+}
+
+.parking-zone h4 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.parking-zone ul {
+    list-style: none;
+    padding: 0;
+}
+
+.parking-zone li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.parking-zone li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.tip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.parking-tip {
+    background: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-top: 3px solid #4caf50;
+}
+
+.parking-tip h4 {
+    color: #2c5f2d;
+    margin-bottom: 0.75rem;
+}
+
+.regulation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.regulation-item {
+    background: #fafafa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.regulation-item h4 {
+    color: #d32f2f;
+    margin-bottom: 0.75rem;
+}
+
+.paid-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.parking-option {
+    background: #fffde7;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px solid #f9a825;
+}
+
+.parking-option h4 {
+    color: #f57c00;
+    margin-bottom: 0.75rem;
+}
+
+.venue-layout {
+    background: #e8f5e9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.layout-info p {
+    margin-bottom: 0.5rem;
+}
+
+.quick-reference-parking {
+    background: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    border: 2px dashed #757575;
+}
+
+.quick-ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.quick-item {
+    text-align: center;
+}
+
+/* Mobile adjustments for parking section */
+@media (max-width: 768px) {
+    #parking-map {
+        height: 300px !important;
+    }
+    
+    .tip-grid,
+    .regulation-grid,
+    .paid-options,
+    .quick-ref-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .parking-zone {
+        padding: 1rem;
+    }
+}
+
 /* Print Styles */
 @media print {
     nav,
@@ -917,5 +1086,9 @@ nav a:hover {
         background: none;
         color: black;
         border-bottom: 2px solid #333;
+    }
+    
+    #parking-map {
+        display: none;
     }
 }
