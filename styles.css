@@ -331,35 +331,117 @@ main {
 }
 
 /* Restaurants */
-.restaurants-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+.intro-text {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
 }
 
-.restaurant {
-    background: #fff;
+.restaurant-section {
+    margin-bottom: 2.5rem;
+}
+
+.restaurant-section h3 {
+    color: #2c5f2d;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #4caf50;
+    padding-bottom: 0.5rem;
+}
+
+.restaurant-detail {
+    background: #f9f9f9;
     padding: 1.5rem;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #4a8652;
+    transition: all 0.3s ease;
 }
 
-.restaurant h3 {
-    color: #2c5f2d;
-    margin-bottom: 1rem;
+.restaurant-detail:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
 }
 
-.restaurant ul {
-    list-style: none;
-}
-
-.restaurant li {
+.restaurant-detail h4 {
+    color: #1b5e20;
     margin-bottom: 0.5rem;
-    padding-left: 1rem;
+    font-size: 1.2rem;
 }
 
-.restaurant li::before {
-    content: "📍 ";
+.restaurant-detail h4 a {
+    color: #1b5e20;
+    text-decoration: none;
+    border-bottom: 2px dotted #4caf50;
+}
+
+.restaurant-detail h4 a:hover {
+    border-bottom: 2px solid #4caf50;
+}
+
+.restaurant-detail .address {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.restaurant-detail .hours {
+    color: #f57c00;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.restaurant-detail .description {
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.restaurant-detail .yelp-review {
+    background: #e8f5e9;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+.restaurant-tips {
+    background: #fff8e1;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    border: 2px solid #ffd54f;
+}
+
+.restaurant-tips h3 {
+    color: #f57c00;
+    margin-bottom: 1rem;
+    border: none;
+}
+
+.restaurant-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.restaurant-tips li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.restaurant-tips li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4caf50;
+    font-weight: bold;
+}
+
+/* Old restaurant styles - remove these */
+.restaurants-grid {
+    display: none;
 }
 
 /* Footer */
@@ -589,6 +671,22 @@ footer {
 .local-tips h3 {
     color: #2c5f2d;
     margin-bottom: 1rem;
+}
+
+/* Mobile adjustments for restaurant section */
+@media (max-width: 768px) {
+    .restaurant-detail {
+        padding: 1rem;
+    }
+    
+    .restaurant-detail h4 {
+        font-size: 1.1rem;
+    }
+    
+    .restaurant-detail .description,
+    .restaurant-detail .yelp-review {
+        font-size: 0.9rem;
+    }
 }
 
 /* Mobile adjustments for new sections */
