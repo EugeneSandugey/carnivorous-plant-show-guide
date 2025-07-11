@@ -17,25 +17,25 @@ body {
     background: linear-gradient(135deg, #2c5f2d 0%, #4a8652 100%);
     color: white;
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 2rem 1rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
     font-weight: 300;
 }
 
 .location {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     opacity: 0.9;
 }
 
@@ -46,52 +46,77 @@ nav {
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
     padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    min-width: min-content;
 }
 
 nav li {
     margin: 0;
+    flex-shrink: 0;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    padding: 1rem 1.5rem;
+    padding: 0.75rem 1rem;
     display: block;
     transition: background-color 0.3s ease;
+    font-size: 0.9rem;
 }
 
 nav a:hover {
     background-color: #2c5f2d;
 }
 
+/* Mobile navigation scroll indicator */
+@media (max-width: 768px) {
+    nav::after {
+        content: '→';
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 1.2rem;
+        pointer-events: none;
+        animation: scroll-hint 2s ease-in-out infinite;
+    }
+    
+    @keyframes scroll-hint {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+    }
+}
+
 /* Main Content */
 main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 1rem 0.5rem;
 }
 
 /* Cards */
 .card {
     background: white;
     border-radius: 10px;
-    padding: 2rem;
-    margin-bottom: 2rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .card h2 {
     color: #2c5f2d;
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
     border-bottom: 3px solid #4a8652;
     padding-bottom: 0.5rem;
 }
@@ -306,24 +331,32 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hero {
+        padding: 1.5rem 1rem;
+    }
+    
     .hero h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
     }
     
     .subtitle {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin-bottom: 0.125rem;
     }
     
-    nav ul {
-        flex-direction: column;
-    }
-    
-    nav a {
-        padding: 0.8rem 1rem;
+    .location {
+        font-size: 0.85rem;
     }
     
     .card {
-        padding: 1.5rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .card h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
     }
     
     .info-grid,
@@ -333,6 +366,55 @@ footer {
     .care-grid,
     .restaurants-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .info-item,
+    .checklist-category,
+    .plant-category,
+    .tip-category,
+    .care-item,
+    .restaurant {
+        padding: 1rem;
+    }
+    
+    .info-item h3,
+    .checklist-category h3,
+    .plant-category h3,
+    .tip-category h3,
+    .care-item h3,
+    .restaurant h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    body {
+        font-size: 0.95rem;
+    }
+    
+    .tip-box,
+    .warning-box {
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .directions-content ol {
+        margin-left: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .directions-content li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+    
+    footer {
+        padding: 1.5rem 1rem;
+        margin-top: 2rem;
+    }
+    
+    .footer-content p {
+        font-size: 0.85rem;
     }
 }
 
