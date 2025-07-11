@@ -110,12 +110,23 @@
                 <div class="street-view-grid">
                     <div class="street-view-item">
                         <img src="images/parking/park-18th.jpg" alt="Park Ave & 18th Street view">
-                        <p><strong>Park Ave & 18th St</strong><br>Looking north - venue is 1 block up</p>
+                        <p><strong>Park Ave & 18th St</strong><br>Looking north - venue is 1 block up<br>
+                        <a href="https://www.google.com/maps/@33.639870,-117.921104,3a,75y,0h,90t/data=!3m6!1e1!3m4!1s" target="_blank">🔗 Open in Google Street View</a></p>
                     </div>
                     <div class="street-view-item">
                         <img src="images/parking/park-19th.jpg" alt="Park Ave & 19th Street view">
-                        <p><strong>Park Ave & 19th St</strong><br>Looking south toward venue</p>
+                        <p><strong>Park Ave & 19th St</strong><br>Looking south toward venue<br>
+                        <a href="https://www.google.com/maps/@33.643502,-117.921138,3a,75y,180h,90t/data=!3m6!1e1!3m4!1s" target="_blank">🔗 Open in Google Street View</a></p>
                     </div>
+                </div>
+                <div class="street-view-links">
+                    <h4>🚶 Virtual Walk-Through Links:</h4>
+                    <ul>
+                        <li><a href="https://www.google.com/maps/@33.641621,-117.921107,3a,75y,90h,90t/data=!3m6!1e1!3m4!1s" target="_blank">📍 Venue Front Entrance (1845 Park Ave)</a></li>
+                        <li><a href="https://www.google.com/maps/@33.640871,-117.921107,3a,75y,270h,90t/data=!3m6!1e1!3m4!1s" target="_blank">🅿️ W 18th Street Parking</a></li>
+                        <li><a href="https://www.google.com/maps/@33.642371,-117.921107,3a,75y,270h,90t/data=!3m6!1e1!3m4!1s" target="_blank">🅿️ W 19th Street Parking</a></li>
+                        <li><a href="https://www.google.com/maps/@33.641621,-117.920607,3a,75y,0h,90t/data=!3m6!1e1!3m4!1s" target="_blank">🅿️ Monrovia Ave Parking</a></li>
+                    </ul>
                 </div>
             </div>
 
@@ -1132,50 +1143,50 @@
                 venueInfo.open(map, venueMarker);
             });
             
-            // Define parking zones with corrected coordinates based on actual street locations
+            // Define parking zones - MUCH SMALLER scale for zoom 18
             const parkingZones = [
                 {
                     name: 'Zone 1: Park Ave (Best - Right in Front)',
                     color: '#4CAF50',
                     paths: [
-                        // Park Ave directly in front of venue
-                        { lat: 33.640821, lng: -117.921157 },  // South end
-                        { lat: 33.640821, lng: -117.921057 },  // East side
-                        { lat: 33.642421, lng: -117.921057 },  // North end
-                        { lat: 33.642421, lng: -117.921157 }   // West side
+                        // Park Ave directly in front of venue - narrow strip
+                        { lat: 33.641021, lng: -117.921137 },  // SW corner
+                        { lat: 33.641021, lng: -117.921077 },  // SE corner  
+                        { lat: 33.642221, lng: -117.921077 },  // NE corner
+                        { lat: 33.642221, lng: -117.921137 }   // NW corner
                     ]
                 },
                 {
                     name: 'Zone 2: W 18th Street',
                     color: '#2196F3',
                     paths: [
-                        // W 18th Street near venue
-                        { lat: 33.640771, lng: -117.921107 },  // Park Ave end
-                        { lat: 33.640821, lng: -117.921107 },  // North side
-                        { lat: 33.640821, lng: -117.920207 },  // East end
-                        { lat: 33.640771, lng: -117.920207 }   // South side
+                        // W 18th Street - thin horizontal strip
+                        { lat: 33.640871, lng: -117.921107 },  // W end at Park
+                        { lat: 33.640921, lng: -117.921107 },  // N side
+                        { lat: 33.640921, lng: -117.920607 },  // E end 
+                        { lat: 33.640871, lng: -117.920607 }   // S side
                     ]
                 },
                 {
                     name: 'Zone 3: W 19th Street',
                     color: '#FF9800',
                     paths: [
-                        // W 19th Street near venue
-                        { lat: 33.642471, lng: -117.921107 },  // Park Ave end
-                        { lat: 33.642521, lng: -117.921107 },  // North side
-                        { lat: 33.642521, lng: -117.922207 },  // West end
-                        { lat: 33.642471, lng: -117.922207 }   // South side
+                        // W 19th Street - thin horizontal strip
+                        { lat: 33.642321, lng: -117.921107 },  // W end at Park
+                        { lat: 33.642371, lng: -117.921107 },  // N side
+                        { lat: 33.642371, lng: -117.921607 },  // Further west
+                        { lat: 33.642321, lng: -117.921607 }   // S side
                     ]
                 },
                 {
                     name: 'Zone 4: Monrovia Ave',
                     color: '#9C27B0',
                     paths: [
-                        // Monrovia Ave as backup
-                        { lat: 33.640821, lng: -117.920157 },  // 18th St end
-                        { lat: 33.640821, lng: -117.920057 },  // East side
-                        { lat: 33.642471, lng: -117.920057 },  // 19th St end
-                        { lat: 33.642471, lng: -117.920157 }   // West side
+                        // Monrovia Ave - narrow vertical strip
+                        { lat: 33.640921, lng: -117.920607 },  // S end
+                        { lat: 33.640921, lng: -117.920547 },  // E side
+                        { lat: 33.642321, lng: -117.920547 },  // N end
+                        { lat: 33.642321, lng: -117.920607 }   // W side
                     ]
                 }
             ];
