@@ -1153,6 +1153,22 @@
                 venueInfo.open(map, venueMarker);
             });
             
+            // Draw rectangle around the venue/event area
+            const venueRectangle = new google.maps.Rectangle({
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 3,
+                fillColor: '#FF0000',
+                fillOpacity: 0.2,
+                map: map,
+                bounds: {
+                    north: 33.641921,  // Just north of venue
+                    south: 33.641321,  // Just south of venue
+                    east: -117.920907,  // Just east of venue
+                    west: -117.921307   // Just west of venue
+                }
+            });
+            
             // Define parking zones using POLYLINES to draw along streets
             const parkingZones = [
                 {
@@ -1168,24 +1184,24 @@
                     name: 'Zone 2: W 18th Street',
                     color: '#2196F3',
                     path: [
-                        { lat: 33.639870, lng: -117.921107 },  // Park Ave
-                        { lat: 33.639870, lng: -117.920000 }   // Monrovia Ave
+                        { lat: 33.639920, lng: -117.921107 },  // Park Ave intersection
+                        { lat: 33.639920, lng: -117.920000 }   // Monrovia Ave intersection
                     ]
                 },
                 {
                     name: 'Zone 3: W 19th Street', 
                     color: '#FF9800',
                     path: [
-                        { lat: 33.643502, lng: -117.921107 },  // Park Ave
-                        { lat: 33.643502, lng: -117.922200 }   // West end
+                        { lat: 33.643320, lng: -117.921107 },  // Park Ave intersection
+                        { lat: 33.643320, lng: -117.922200 }   // West end
                     ]
                 },
                 {
                     name: 'Zone 4: Monrovia Ave',
                     color: '#9C27B0',
                     path: [
-                        { lat: 33.639870, lng: -117.920000 },  // 18th St
-                        { lat: 33.643502, lng: -117.920000 }   // 19th St
+                        { lat: 33.639920, lng: -117.920000 },  // 18th St intersection
+                        { lat: 33.643320, lng: -117.920000 }   // 19th St intersection
                     ]
                 }
             ];
