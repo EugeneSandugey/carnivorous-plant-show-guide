@@ -943,9 +943,35 @@ nav a:hover {
     font-size: 0.9rem;
 }
 
-.street-view-item a {
-    color: #1b5e20;
+.street-view-caption {
+    padding: 1rem;
+}
+
+.street-view-caption h4 {
+    color: #1565c0;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.street-view-caption p {
+    margin: 0 0 0.75rem 0;
+    line-height: 1.5;
+}
+
+.street-view-button {
+    display: inline-block;
+    background: #1976d2;
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
     font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.street-view-button:hover {
+    background: #1565c0;
+    border-bottom: none;
 }
 
 .street-view-links {

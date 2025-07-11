@@ -110,13 +110,23 @@
                 <div class="street-view-grid">
                     <div class="street-view-item">
                         <img src="images/parking/park-18th.jpg" alt="Park Ave & 18th Street view">
-                        <p><strong>Park Ave & 18th St</strong><br>Looking north - venue is 1 block up<br>
-                        <a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=33.639870,-117.921104&heading=0&pitch=0&fov=75" target="_blank">🔗 Open in Google Street View</a></p>
+                        <div class="street-view-caption">
+                            <h4>📍 View from: Corner of Park Ave & W 18th St</h4>
+                            <p><strong>Looking:</strong> North on Park Ave toward venue (1 block ahead)<br>
+                            <strong>What you'll see:</strong> Residential street, venue will be on your right<br>
+                            <strong>Parking:</strong> Both sides of Park Ave from here to 19th St</p>
+                            <a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=33.639870,-117.921104&heading=0&pitch=0&fov=75" target="_blank" class="street-view-button">🔗 Explore This View in Google Street View</a>
+                        </div>
                     </div>
                     <div class="street-view-item">
                         <img src="images/parking/park-19th.jpg" alt="Park Ave & 19th Street view">
-                        <p><strong>Park Ave & 19th St</strong><br>Looking south toward venue<br>
-                        <a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=33.643502,-117.921138&heading=180&pitch=0&fov=75" target="_blank">🔗 Open in Google Street View</a></p>
+                        <div class="street-view-caption">
+                            <h4>📍 View from: Corner of Park Ave & W 19th St</h4>
+                            <p><strong>Looking:</strong> South on Park Ave toward venue (1 block back)<br>
+                            <strong>What you'll see:</strong> Venue is mid-block on your left<br>
+                            <strong>Parking:</strong> W 19th St has parking heading west from here</p>
+                            <a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=33.643502,-117.921138&heading=180&pitch=0&fov=75" target="_blank" class="street-view-button">🔗 Explore This View in Google Street View</a>
+                        </div>
                     </div>
                 </div>
                 <div class="street-view-links">
@@ -1143,71 +1153,62 @@
                 venueInfo.open(map, venueMarker);
             });
             
-            // Define parking zones - LARGER scale to match zoom 18 view
+            // Define parking zones using POLYLINES to draw along streets
             const parkingZones = [
                 {
                     name: 'Zone 1: Park Ave (Best - Right in Front)',
                     color: '#4CAF50',
-                    paths: [
-                        // Park Ave directly in front of venue - street width strip
-                        { lat: 33.639870, lng: -117.921200 },  // South at 18th
-                        { lat: 33.639870, lng: -117.921020 },  // East side  
-                        { lat: 33.643300, lng: -117.921020 },  // North at 19th
-                        { lat: 33.643300, lng: -117.921200 }   // West side
+                    path: [
+                        { lat: 33.639870, lng: -117.921107 },  // 18th & Park
+                        { lat: 33.641621, lng: -117.921107 },  // Venue location
+                        { lat: 33.643502, lng: -117.921107 }   // 19th & Park
                     ]
                 },
                 {
                     name: 'Zone 2: W 18th Street',
                     color: '#2196F3',
-                    paths: [
-                        // W 18th Street - full street width
-                        { lat: 33.639750, lng: -117.921100 },  // West at Park
-                        { lat: 33.639990, lng: -117.921100 },  // North side
-                        { lat: 33.639990, lng: -117.919900 },  // East at Monrovia
-                        { lat: 33.639750, lng: -117.919900 }   // South side
+                    path: [
+                        { lat: 33.639870, lng: -117.921107 },  // Park Ave
+                        { lat: 33.639870, lng: -117.920000 }   // Monrovia Ave
                     ]
                 },
                 {
-                    name: 'Zone 3: W 19th Street',
+                    name: 'Zone 3: W 19th Street', 
                     color: '#FF9800',
-                    paths: [
-                        // W 19th Street - full street width west of Park
-                        { lat: 33.643300, lng: -117.921100 },  // East at Park
-                        { lat: 33.643540, lng: -117.921100 },  // North side
-                        { lat: 33.643540, lng: -117.922500 },  // West end
-                        { lat: 33.643300, lng: -117.922500 }   // South side
+                    path: [
+                        { lat: 33.643502, lng: -117.921107 },  // Park Ave
+                        { lat: 33.643502, lng: -117.922200 }   // West end
                     ]
                 },
                 {
                     name: 'Zone 4: Monrovia Ave',
                     color: '#9C27B0',
-                    paths: [
-                        // Monrovia Ave - full street width
-                        { lat: 33.639990, lng: -117.920100 },  // South at 18th
-                        { lat: 33.639990, lng: -117.919920 },  // East side
-                        { lat: 33.643300, lng: -117.919920 },  // North at 19th
-                        { lat: 33.643300, lng: -117.920100 }   // West side
+                    path: [
+                        { lat: 33.639870, lng: -117.920000 },  // 18th St
+                        { lat: 33.643502, lng: -117.920000 }   // 19th St
                     ]
                 }
             ];
             
-            // Draw parking zones
+            // Draw parking zones as thick lines along streets
             parkingZones.forEach(zone => {
-                const parkingArea = new google.maps.Polygon({
-                    paths: zone.paths,
+                const parkingLine = new google.maps.Polyline({
+                    path: zone.path,
+                    geodesic: true,
                     strokeColor: zone.color,
                     strokeOpacity: 0.8,
-                    strokeWeight: 3,
-                    fillColor: zone.color,
-                    fillOpacity: 0.35,
+                    strokeWeight: 12,  // Thick line to represent parking area
                     map: map
                 });
                 
-                // Add click listener
-                parkingArea.addListener('click', () => {
+                // Add info window at midpoint
+                const midIndex = Math.floor(zone.path.length / 2);
+                const midPoint = zone.path[midIndex];
+                
+                parkingLine.addListener('click', (event) => {
                     const info = new google.maps.InfoWindow({
                         content: `<div style="padding: 10px;"><strong>${zone.name}</strong></div>`,
-                        position: zone.paths[0]
+                        position: event.latLng || midPoint
                     });
                     info.open(map);
                 });
