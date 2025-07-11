@@ -706,6 +706,24 @@ footer {
     left: 0;
 }
 
+.guide-notes {
+    background: #fff3e0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    border: 1px solid #ffb74d;
+}
+
+.guide-notes h3 {
+    color: #e65100;
+    margin-bottom: 0.75rem;
+}
+
+.guide-notes p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
 /* Quick Reference Section */
 .quick-ref-content {
     background: #fffde7;
