@@ -1118,7 +1118,7 @@
         // Initialize Google Map
         function initMap() {
             // Norma Hertzog Community Center actual coordinates
-            const venueLocation = { lat: 33.641959, lng: -117.922051 };
+            const venueLocation = { lat: 33.6412813, lng: -117.9217759 };
             
             // Create map centered on venue with better zoom - DEFAULT TO SATELLITE
             const map = new google.maps.Map(document.getElementById('parking-map'), {
@@ -1163,53 +1163,53 @@
                 fillOpacity: 0.2,
                 map: map,
                 bounds: {
-                    north: 33.642259,  // North edge of building
-                    south: 33.641659,  // South edge of building  
-                    east: -117.921651,  // East edge of building
-                    west: -117.922451   // West edge of building
+                    north: 33.6414813,  // North edge of building
+                    south: 33.6410813,  // South edge of building  
+                    east: -117.9215759,  // East edge of building
+                    west: -117.9219759   // West edge of building
                 }
             });
             
             // Define parking zones - streets are SOUTH and NORTH of venue
-            // Venue center is at 33.6412813, -117.9217759
-            // Calculate zones as OFFSETS from venue location
-            const venueLat = 33.6412813;
-            const venueLng = -117.9217759;
+            // At zoom 18, each city block is about 0.001 lat/lng
+            // Park Ave is about 50 meters west = 0.0005 lng
+            // 18th St is about 120 meters south = 0.0011 lat
+            // 19th St is about 120 meters north = 0.0011 lat
             
             const parkingZones = [
                 {
                     name: 'Zone 1: Park Ave (Street parking)',
                     color: '#4CAF50',
                     path: [
-                        { lat: venueLat - 0.0011, lng: venueLng - 0.0003 },  // South on Park
-                        { lat: venueLat + 0.0011, lng: venueLng - 0.0003 }   // North on Park
+                        { lat: 33.6401813, lng: -117.9222759 },  // South end
+                        { lat: 33.6423813, lng: -117.9222759 }   // North end
                     ]
                 },
                 {
                     name: 'Zone 2: W 18th Street (South of venue)',
                     color: '#2196F3', 
                     path: [
-                        { lat: venueLat - 0.0011, lng: venueLng - 0.0007 },  // West end
-                        { lat: venueLat - 0.0011, lng: venueLng + 0.0004 }   // East end
+                        { lat: 33.6401813, lng: -117.9227759 },  // West end
+                        { lat: 33.6401813, lng: -117.9212759 }   // East end
                     ]
                 },
                 {
                     name: 'Zone 3: W 19th Street (North of venue)',
                     color: '#FF9800',
                     path: [
-                        { lat: venueLat + 0.0011, lng: venueLng - 0.0007 },  // West end
-                        { lat: venueLat + 0.0011, lng: venueLng + 0.0004 }   // East end
+                        { lat: 33.6423813, lng: -117.9227759 },  // West end
+                        { lat: 33.6423813, lng: -117.9212759 }   // East end
                     ]
                 },
                 {
                     name: 'Zone 4: Venue Parking Lot (East side)',
                     color: '#9C27B0',
                     path: [
-                        { lat: venueLat - 0.0003, lng: venueLng + 0.0003 },  // SW corner
-                        { lat: venueLat - 0.0003, lng: venueLng + 0.0005 },  // SE corner
-                        { lat: venueLat + 0.0003, lng: venueLng + 0.0005 },  // NE corner
-                        { lat: venueLat + 0.0003, lng: venueLng + 0.0003 },  // NW corner
-                        { lat: venueLat - 0.0003, lng: venueLng + 0.0003 }   // Close polygon
+                        { lat: 33.6409813, lng: -117.9214759 },  // SW corner
+                        { lat: 33.6409813, lng: -117.9212759 },  // SE corner
+                        { lat: 33.6415813, lng: -117.9212759 },  // NE corner
+                        { lat: 33.6415813, lng: -117.9214759 },  // NW corner
+                        { lat: 33.6409813, lng: -117.9214759 }   // Close polygon
                     ]
                 }
             ];
