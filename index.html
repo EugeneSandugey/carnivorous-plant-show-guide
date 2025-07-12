@@ -1170,40 +1170,40 @@
                 }
             });
             
-            // Define parking zones - CORRECTED for actual street locations
+            // Define parking zones - streets are SOUTH and NORTH of venue
             const parkingZones = [
                 {
                     name: 'Zone 1: Park Ave (Best - Right in Front)',
                     color: '#4CAF50',
                     path: [
-                        { lat: 33.640259, lng: -117.922051 },  // 18th & Park
-                        { lat: 33.641959, lng: -117.922051 },  // Venue location
-                        { lat: 33.643659, lng: -117.922051 }   // 19th & Park
+                        { lat: 33.640459, lng: -117.922051 },  // 18th & Park (SOUTH of venue)
+                        { lat: 33.641959, lng: -117.922051 },  // Along venue
+                        { lat: 33.643459, lng: -117.922051 }   // 19th & Park (NORTH of venue)
                     ]
                 },
                 {
                     name: 'Zone 2: W 18th Street',
                     color: '#2196F3',
                     path: [
-                        { lat: 33.640259, lng: -117.923200 },  // West end
-                        { lat: 33.640259, lng: -117.922051 },  // Park Ave
-                        { lat: 33.640259, lng: -117.920900 }   // East end at Monrovia
+                        { lat: 33.640459, lng: -117.923500 },  // West end  
+                        { lat: 33.640459, lng: -117.922051 },  // Park Ave
+                        { lat: 33.640459, lng: -117.920600 }   // East end at Monrovia
                     ]
                 },
                 {
                     name: 'Zone 3: W 19th Street', 
                     color: '#FF9800',
                     path: [
-                        { lat: 33.643659, lng: -117.922051 },  // Park Ave
-                        { lat: 33.643659, lng: -117.923200 }   // West end
+                        { lat: 33.643459, lng: -117.922051 },  // Park Ave
+                        { lat: 33.643459, lng: -117.923500 }   // West end
                     ]
                 },
                 {
                     name: 'Zone 4: Monrovia Ave',
                     color: '#9C27B0',
                     path: [
-                        { lat: 33.640259, lng: -117.920900 },  // 18th St
-                        { lat: 33.643659, lng: -117.920900 }   // 19th St
+                        { lat: 33.640459, lng: -117.920600 },  // 18th St
+                        { lat: 33.643459, lng: -117.920600 }   // 19th St  
                     ]
                 }
             ];
@@ -1223,9 +1223,22 @@
                 const midIndex = Math.floor(zone.path.length / 2);
                 const midPoint = zone.path[midIndex];
                 
+                // Calculate approximate walking distance
+                const distance = google.maps.geometry.spherical.computeDistanceBetween(
+                    new google.maps.LatLng(midPoint.lat, midPoint.lng),
+                    new google.maps.LatLng(venueLocation.lat, venueLocation.lng)
+                );
+                const walkTime = Math.ceil((distance / 1000) * 12); // ~12 min per km walking
+                
                 parkingLine.addListener('click', (event) => {
                     const info = new google.maps.InfoWindow({
-                        content: `<div style="padding: 10px;"><strong>${zone.name}</strong></div>`,
+                        content: `<div style="padding: 10px;">
+                            <h4 style="margin: 0 0 10px 0;">${zone.name}</h4>
+                            <p style="margin: 5px 0;">Free parking all day Saturday!</p>
+                            <p style="margin: 5px 0;">No meters or permits required</p>
+                            <p style="margin: 5px 0;">🚶 ~${walkTime} min walk to venue</p>
+                            <p style="margin: 5px 0;"><strong>Double-click for walking directions</strong></p>
+                        </div>`,
                         position: event.latLng || midPoint
                     });
                     info.open(map);
@@ -1258,8 +1271,46 @@
                 </div>
             `;
             map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
+            
+            // Add Directions Service for walking routes
+            const directionsService = new google.maps.DirectionsService();
+            const directionsRenderer = new google.maps.DirectionsRenderer({
+                map: map,
+                polylineOptions: {
+                    strokeColor: '#00ACC1',
+                    strokeWeight: 4,
+                    strokeOpacity: 0.7
+                },
+                suppressMarkers: true,
+                preserveViewport: true
+            });
+            
+            // Add walking time info to each zone
+            const walkingTimes = [
+                { zone: 'Zone 1', origin: { lat: 33.641959, lng: -117.922051 }, time: '0 min' },
+                { zone: 'Zone 2', origin: { lat: 33.639870, lng: -117.921500 }, time: '2-3 min' },
+                { zone: 'Zone 3', origin: { lat: 33.643502, lng: -117.922600 }, time: '2-3 min' },
+                { zone: 'Zone 4', origin: { lat: 33.641959, lng: -117.920900 }, time: '3-4 min' }
+            ];
+            
+            // Add click handlers to show walking directions
+            parkingZones.forEach((zone, index) => {
+                const midPoint = zone.path[Math.floor(zone.path.length / 2)];
+                parkingLine.addListener('dblclick', () => {
+                    const request = {
+                        origin: midPoint,
+                        destination: venueLocation,
+                        travelMode: 'WALKING'
+                    };
+                    directionsService.route(request, (result, status) => {
+                        if (status === 'OK') {
+                            directionsRenderer.setDirections(result);
+                        }
+                    });
+                });
+            });
         }
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWRGDsBPWrBbAXtmXMzlYeB9CgDIfMPxU&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWRGDsBPWrBbAXtmXMzlYeB9CgDIfMPxU&libraries=places,geometry,directions&callback=initMap"></script>
 </body>
 </html>
