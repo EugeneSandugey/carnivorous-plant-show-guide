@@ -1245,6 +1245,9 @@
                 }
             ];
             
+            // Store info windows to close them on double-click
+            let openInfoWindow = null;
+            
             // Draw parking zones - use Polygon for lots, Polyline for streets
             parkingZones.forEach(zone => {
                 if (zone.path.length > 3) {
@@ -1259,7 +1262,9 @@
                         map: map
                     });
                     
+                    // Single click for info
                     parkingArea.addListener('click', (event) => {
+                        if (openInfoWindow) openInfoWindow.close();
                         const info = new google.maps.InfoWindow({
                             content: `<div style="padding: 10px;">
                                 <h4 style="margin: 0 0 10px 0;">${zone.name}</h4>
@@ -1269,6 +1274,22 @@
                             position: event.latLng
                         });
                         info.open(map);
+                        openInfoWindow = info;
+                    });
+                    
+                    // Double click for directions
+                    parkingArea.addListener('dblclick', (event) => {
+                        if (openInfoWindow) openInfoWindow.close();
+                        const request = {
+                            origin: event.latLng,
+                            destination: venueLocation,
+                            travelMode: 'WALKING'
+                        };
+                        directionsService.route(request, (result, status) => {
+                            if (status === 'OK') {
+                                directionsRenderer.setDirections(result);
+                            }
+                        });
                     });
                 } else {
                     // It's a street - use polyline
@@ -1292,7 +1313,9 @@
                     );
                     const walkTime = Math.ceil((distance / 1000) * 12); // ~12 min per km walking
                     
+                    // Single click for info
                     parkingLine.addListener('click', (event) => {
+                        if (openInfoWindow) openInfoWindow.close();
                         const info = new google.maps.InfoWindow({
                             content: `<div style="padding: 10px;">
                                 <h4 style="margin: 0 0 10px 0;">${zone.name}</h4>
@@ -1304,6 +1327,22 @@
                             position: event.latLng || midPoint
                         });
                         info.open(map);
+                        openInfoWindow = info;
+                    });
+                    
+                    // Double click for directions
+                    parkingLine.addListener('dblclick', (event) => {
+                        if (openInfoWindow) openInfoWindow.close();
+                        const request = {
+                            origin: event.latLng || midPoint,
+                            destination: venueLocation,
+                            travelMode: 'WALKING'
+                        };
+                        directionsService.route(request, (result, status) => {
+                            if (status === 'OK') {
+                                directionsRenderer.setDirections(result);
+                            }
+                        });
                     });
                 }
             });
@@ -1349,30 +1388,6 @@
                 preserveViewport: true
             });
             
-            // Add walking time info to each zone
-            const walkingTimes = [
-                { zone: 'Zone 1', origin: { lat: 33.641959, lng: -117.922051 }, time: '0 min' },
-                { zone: 'Zone 2', origin: { lat: 33.639870, lng: -117.921500 }, time: '2-3 min' },
-                { zone: 'Zone 3', origin: { lat: 33.643502, lng: -117.922600 }, time: '2-3 min' },
-                { zone: 'Zone 4', origin: { lat: 33.641959, lng: -117.920900 }, time: '3-4 min' }
-            ];
-            
-            // Add click handlers to show walking directions
-            parkingZones.forEach((zone, index) => {
-                const midPoint = zone.path[Math.floor(zone.path.length / 2)];
-                parkingLine.addListener('dblclick', () => {
-                    const request = {
-                        origin: midPoint,
-                        destination: venueLocation,
-                        travelMode: 'WALKING'
-                    };
-                    directionsService.route(request, (result, status) => {
-                        if (status === 'OK') {
-                            directionsRenderer.setDirections(result);
-                        }
-                    });
-                });
-            });
         }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWRGDsBPWrBbAXtmXMzlYeB9CgDIfMPxU&libraries=places,geometry,directions&callback=initMap"></script>
