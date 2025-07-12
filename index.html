@@ -1171,44 +1171,43 @@
             });
             
             // Define parking zones - streets are SOUTH and NORTH of venue
-            // The issue is the streets run EAST-WEST, not north-south!
-            // Park Ave runs NORTH-SOUTH
-            // 18th and 19th run EAST-WEST
+            // At zoom 18, streets are about 0.001 degrees apart
+            // Venue is at 33.641959, -117.922051
             const parkingZones = [
                 {
                     name: 'Zone 1: Park Ave (Best - Right in Front)',
                     color: '#4CAF50',
                     path: [
-                        { lat: 33.640000, lng: -117.922051 },  // South of venue
-                        { lat: 33.641959, lng: -117.922051 },  // Along venue
-                        { lat: 33.644000, lng: -117.922051 }   // North of venue
+                        { lat: 33.640959, lng: -117.922051 },  // 0.001 south (18th St)
+                        { lat: 33.641959, lng: -117.922051 },  // Venue location
+                        { lat: 33.642959, lng: -117.922051 }   // 0.001 north (19th St)
                     ]
                 },
                 {
                     name: 'Zone 2: W 18th Street',
                     color: '#2196F3',
                     path: [
-                        { lat: 33.640300, lng: -117.924000 },  // West end  
-                        { lat: 33.640300, lng: -117.922051 },  // Park Ave
-                        { lat: 33.640300, lng: -117.920000 }   // East end
+                        { lat: 33.640959, lng: -117.923051 },  // 0.001 west of Park
+                        { lat: 33.640959, lng: -117.922051 },  // Park Ave intersection
+                        { lat: 33.640959, lng: -117.921051 }   // 0.001 east towards Monrovia
                     ]
                 },
                 {
                     name: 'Zone 3: W 19th Street', 
                     color: '#FF9800',
                     path: [
-                        { lat: 33.643700, lng: -117.924000 },  // West end
-                        { lat: 33.643700, lng: -117.922051 },  // Park Ave
-                        { lat: 33.643700, lng: -117.920000 }   // East end
+                        { lat: 33.642959, lng: -117.923051 },  // 0.001 west of Park
+                        { lat: 33.642959, lng: -117.922051 },  // Park Ave intersection
+                        { lat: 33.642959, lng: -117.921051 }   // 0.001 east towards Monrovia
                     ]
                 },
                 {
                     name: 'Zone 4: Monrovia Ave',
                     color: '#9C27B0',
                     path: [
-                        { lat: 33.640300, lng: -117.920000 },  // 18th St intersection
-                        { lat: 33.641959, lng: -117.920000 },  // Mid-point
-                        { lat: 33.643700, lng: -117.920000 }   // 19th St intersection
+                        { lat: 33.640959, lng: -117.920551 },  // 0.0015 east of venue (18th)
+                        { lat: 33.641959, lng: -117.920551 },  // Mid-point  
+                        { lat: 33.642959, lng: -117.920551 }   // 0.0015 east of venue (19th)
                     ]
                 }
             ];
