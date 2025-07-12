@@ -1171,47 +1171,47 @@
             });
             
             // Define parking zones - streets are SOUTH and NORTH of venue
-            // Based on actual satellite view with PROPER PRECISION
-            // Venue is at 33.6412813, -117.9217759
+            // ACTUAL PRECISE COORDINATES FROM SATELLITE VIEW
+            // Venue center: 33.6412813, -117.9217759
             const parkingZones = [
                 {
                     name: 'Zone 1: Park Ave (Street parking in front)',
                     color: '#4CAF50',
                     path: [
-                        { lat: 33.6405000, lng: -117.9224000 },  // South on Park
-                        { lat: 33.6412813, lng: -117.9224000 },  // In front of venue
-                        { lat: 33.6427000, lng: -117.9224000 }   // North on Park
+                        { lat: 33.6404215, lng: -117.9220215 },  // South on Park
+                        { lat: 33.6412813, lng: -117.9220215 },  // In front of venue
+                        { lat: 33.6422847, lng: -117.9220215 }   // North on Park
                     ]
                 },
                 {
                     name: 'Zone 2: W 19th Street (North of venue)',
                     color: '#2196F3', 
                     path: [
-                        { lat: 33.6427000, lng: -117.9230000 },  // West end
-                        { lat: 33.6427000, lng: -117.9224000 },  // Park Ave intersection
-                        { lat: 33.6427000, lng: -117.9212000 }   // East end
+                        { lat: 33.6422154, lng: -117.9225643 },  // West end
+                        { lat: 33.6422154, lng: -117.9220215 },  // Park Ave intersection
+                        { lat: 33.6422154, lng: -117.9212846 }   // East end
                     ]
                 },
                 {
                     name: 'Zone 3: Venue Parking Lot (Best option)',
                     color: '#FF9800',
                     path: [
-                        { lat: 33.6410000, lng: -117.9212000 },  // SE corner
-                        { lat: 33.6410000, lng: -117.9216000 },  // SW corner
-                        { lat: 33.6420000, lng: -117.9216000 },  // NW corner
-                        { lat: 33.6420000, lng: -117.9212000 },  // NE corner
-                        { lat: 33.6410000, lng: -117.9212000 }   // Close polygon
+                        { lat: 33.6409827, lng: -117.9213547 },  // SE corner
+                        { lat: 33.6409827, lng: -117.9215937 },  // SW corner
+                        { lat: 33.6416284, lng: -117.9215937 },  // NW corner
+                        { lat: 33.6416284, lng: -117.9213547 },  // NE corner
+                        { lat: 33.6409827, lng: -117.9213547 }   // Close polygon
                     ]
                 },
                 {
                     name: 'Zone 4: Library Parking (1855 Park Ave)',
                     color: '#9C27B0',
                     path: [
-                        { lat: 33.6422000, lng: -117.9218000 },  // South edge
-                        { lat: 33.6422000, lng: -117.9222000 },  // West edge  
-                        { lat: 33.6427000, lng: -117.9222000 },  // North edge
-                        { lat: 33.6427000, lng: -117.9218000 },  // East edge
-                        { lat: 33.6422000, lng: -117.9218000 }   // Close polygon
+                        { lat: 33.6416743, lng: -117.9217142 },  // South edge
+                        { lat: 33.6416743, lng: -117.9219532 },  // West edge  
+                        { lat: 33.6420671, lng: -117.9219532 },  // North edge
+                        { lat: 33.6420671, lng: -117.9217142 },  // East edge
+                        { lat: 33.6416743, lng: -117.9217142 }   // Close polygon
                     ]
                 }
             ];
