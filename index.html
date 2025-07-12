@@ -109,12 +109,12 @@
                 <h3>📸 Street View Preview - Know Before You Go!</h3>
                 <div class="street-view-grid">
                     <div class="street-view-item">
-                        <img src="images/parking/park-18th.jpg" alt="Park Ave & 18th Street view">
+                        <img src="images/parking/park-18th.jpg" alt="Park Ave street view">
                         <div class="street-view-caption">
-                            <h4>📍 View from: Corner of Park Ave & W 18th St</h4>
-                            <p><strong>Looking:</strong> North on Park Ave toward venue (1 block ahead)<br>
-                            <strong>What you'll see:</strong> Residential street, venue will be on your right<br>
-                            <strong>Parking:</strong> Both sides of Park Ave from here to 19th St</p>
+                            <h4>📍 View from: Park Ave looking north</h4>
+                            <p><strong>Looking:</strong> North on Park Ave toward venue<br>
+                            <strong>What you'll see:</strong> Residential street, venue ahead on right<br>
+                            <strong>Parking:</strong> Both sides of Park Ave</p>
                             <a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=33.639870,-117.921104&heading=0&pitch=0&fov=75" target="_blank" class="street-view-button">🔗 Explore This View in Google Street View</a>
                         </div>
                     </div>
@@ -160,35 +160,35 @@
                 </div>
 
                 <div class="parking-zone priority-2">
-                    <h4>Zone 2: 18th Street (Very Good)</h4>
+                    <h4>Zone 2: W 19th Street (Very Good)</h4>
                     <ul>
-                        <li><strong>Location:</strong> 18th Street between Park Ave and Monrovia Ave</li>
+                        <li><strong>Location:</strong> 19th Street running east-west, north of venue</li>
                         <li><strong>Distance:</strong> 200-400 feet (1-minute walk)</li>
                         <li><strong>Spots:</strong> ~30-40 spaces on both sides</li>
-                        <li><strong>Advantage:</strong> Less competition, shaded areas</li>
+                        <li><strong>Near:</strong> Bank of America</li>
                         <li><strong>Tip:</strong> Park closer to Park Ave for shorter walk</li>
                     </ul>
                 </div>
 
                 <div class="parking-zone priority-3">
-                    <h4>Zone 3: 19th Street (Good Alternative)</h4>
+                    <h4>Zone 3: Venue Parking Lot (Most Convenient)</h4>
                     <ul>
-                        <li><strong>Location:</strong> 19th Street west of Park Ave</li>
-                        <li><strong>Distance:</strong> 300-500 feet (2-minute walk)</li>
-                        <li><strong>Spots:</strong> ~25-30 spaces</li>
-                        <li><strong>Note:</strong> Near 24 Hour Fitness, easier to find spots</li>
-                        <li><strong>Bonus:</strong> Can stop at fitness center restroom if needed</li>
+                        <li><strong>Location:</strong> Parking lot directly east of venue building</li>
+                        <li><strong>Distance:</strong> 0 feet - right at the venue!</li>
+                        <li><strong>Spots:</strong> ~30-40 dedicated spaces</li>
+                        <li><strong>Note:</strong> May fill up early on busy days</li>
+                        <li><strong>Best for:</strong> Those with heavy purchases or mobility needs</li>
                     </ul>
                 </div>
 
                 <div class="parking-zone priority-4">
-                    <h4>Zone 4: Monrovia Avenue (Backup Option)</h4>
+                    <h4>Zone 4: Library Parking Lot (Backup Option)</h4>
                     <ul>
-                        <li><strong>Location:</strong> Monrovia Ave between 18th and 19th</li>
-                        <li><strong>Distance:</strong> 400-600 feet (3-minute walk)</li>
-                        <li><strong>Spots:</strong> Usually plenty available</li>
-                        <li><strong>Strategy:</strong> Use if Zones 1-3 are full</li>
-                        <li><strong>Tip:</strong> Definitely bring a wagon from here</li>
+                        <li><strong>Location:</strong> Donald Dungan Library at 1855 Park Ave</li>
+                        <li><strong>Distance:</strong> 300 feet (2-minute walk)</li>
+                        <li><strong>Spots:</strong> Large lot with many spaces</li>
+                        <li><strong>Note:</strong> North of the venue</li>
+                        <li><strong>Best for:</strong> Late arrivals, guaranteed parking</li>
                     </ul>
                 </div>
             </div>
@@ -1297,10 +1297,10 @@
             legend.innerHTML = `
                 <div style="background: white; padding: 10px; margin: 10px; border-radius: 5px; box-shadow: 0 2px 6px rgba(0,0,0,.3);">
                     <h4 style="margin: 0 0 10px 0;">Parking Zones</h4>
-                    <div style="margin: 5px 0;"><span style="background: #4CAF50; padding: 2px 8px; color: white; border-radius: 3px;">Zone 1</span> Park Ave (Best)</div>
-                    <div style="margin: 5px 0;"><span style="background: #2196F3; padding: 2px 8px; color: white; border-radius: 3px;">Zone 2</span> 18th Street</div>
-                    <div style="margin: 5px 0;"><span style="background: #FF9800; padding: 2px 8px; color: white; border-radius: 3px;">Zone 3</span> 19th Street</div>
-                    <div style="margin: 5px 0;"><span style="background: #9C27B0; padding: 2px 8px; color: white; border-radius: 3px;">Zone 4</span> Monrovia Ave</div>
+                    <div style="margin: 5px 0;"><span style="background: #4CAF50; padding: 2px 8px; color: white; border-radius: 3px;">Zone 1</span> Park Ave (Street)</div>
+                    <div style="margin: 5px 0;"><span style="background: #2196F3; padding: 2px 8px; color: white; border-radius: 3px;">Zone 2</span> W 19th Street</div>
+                    <div style="margin: 5px 0;"><span style="background: #FF9800; padding: 2px 8px; color: white; border-radius: 3px;">Zone 3</span> Venue Parking</div>
+                    <div style="margin: 5px 0;"><span style="background: #9C27B0; padding: 2px 8px; color: white; border-radius: 3px;">Zone 4</span> Library Lot</div>
                 </div>
             `;
             map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
