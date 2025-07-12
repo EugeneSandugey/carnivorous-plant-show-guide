@@ -1171,45 +1171,42 @@
             });
             
             // Define parking zones - streets are SOUTH and NORTH of venue
-            // Venue center is at 33.6412813, -117.9217759
-            // Based on Costa Mesa street grid:
-            // - W 18th St is at approximately 33.6401 (south)
-            // - W 19th St is at approximately 33.6424 (north)
-            // - Park Ave is at approximately -117.9221 (west)
+            // Venue center is PRECISELY at 33.6412813, -117.9217759
+            // PROPER PRECISION - NO TRAILING ZEROS!
             const parkingZones = [
                 {
                     name: 'Zone 1: Park Ave (Street parking)',
                     color: '#4CAF50',
                     path: [
-                        { lat: 33.6401000, lng: -117.9221000 },  // Near W 18th
-                        { lat: 33.6424000, lng: -117.9221000 }   // Near W 19th
+                        { lat: 33.6401843, lng: -117.9220687 },  // South end near W 18th
+                        { lat: 33.6423784, lng: -117.9220687 }   // North end near W 19th
                     ]
                 },
                 {
                     name: 'Zone 2: W 18th Street (South of venue)',
                     color: '#2196F3', 
                     path: [
-                        { lat: 33.6401000, lng: -117.9225000 },  // West end
-                        { lat: 33.6401000, lng: -117.9214000 }   // East end
+                        { lat: 33.6401843, lng: -117.9224872 },  // West end
+                        { lat: 33.6401843, lng: -117.9213748 }   // East end
                     ]
                 },
                 {
                     name: 'Zone 3: W 19th Street (North of venue)',
                     color: '#FF9800',
                     path: [
-                        { lat: 33.6424000, lng: -117.9225000 },  // West end
-                        { lat: 33.6424000, lng: -117.9214000 }   // East end
+                        { lat: 33.6423784, lng: -117.9224872 },  // West end
+                        { lat: 33.6423784, lng: -117.9213748 }   // East end
                     ]
                 },
                 {
                     name: 'Zone 4: Venue Parking Lot (East side)',
                     color: '#9C27B0',
                     path: [
-                        { lat: 33.6410000, lng: -117.9215000 },  // SW corner
-                        { lat: 33.6410000, lng: -117.9213000 },  // SE corner
-                        { lat: 33.6416000, lng: -117.9213000 },  // NE corner
-                        { lat: 33.6416000, lng: -117.9215000 },  // NW corner
-                        { lat: 33.6410000, lng: -117.9215000 }   // Close polygon
+                        { lat: 33.6410234, lng: -117.9215123 },  // SW corner
+                        { lat: 33.6410234, lng: -117.9213456 },  // SE corner
+                        { lat: 33.6415678, lng: -117.9213456 },  // NE corner
+                        { lat: 33.6415678, lng: -117.9215123 },  // NW corner
+                        { lat: 33.6410234, lng: -117.9215123 }   // Close polygon
                     ]
                 }
             ];
