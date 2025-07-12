@@ -1117,8 +1117,8 @@
         
         // Initialize Google Map
         function initMap() {
-            // Norma Hertzog Community Center CORRECTED coordinates
-            const venueLocation = { lat: 33.641621, lng: -117.921107 };
+            // Norma Hertzog Community Center actual coordinates
+            const venueLocation = { lat: 33.641959, lng: -117.922051 };
             
             // Create map centered on venue with better zoom - DEFAULT TO SATELLITE
             const map = new google.maps.Map(document.getElementById('parking-map'), {
@@ -1154,7 +1154,7 @@
                 venueInfo.open(map, venueMarker);
             });
             
-            // Draw rectangle around the actual venue building (east of Park Ave)
+            // Draw rectangle around the actual venue building
             const venueRectangle = new google.maps.Rectangle({
                 strokeColor: '#FF0000',
                 strokeOpacity: 0.8,
@@ -1163,47 +1163,47 @@
                 fillOpacity: 0.2,
                 map: map,
                 bounds: {
-                    north: 33.641921,  // North edge of building
-                    south: 33.641321,  // South edge of building  
-                    east: -117.920807,  // East edge of building/lot
-                    west: -117.921007   // West edge at Park Ave
+                    north: 33.642259,  // North edge of building
+                    south: 33.641659,  // South edge of building  
+                    east: -117.921651,  // East edge of building
+                    west: -117.922451   // West edge of building
                 }
             });
             
-            // Define parking zones using POLYLINES to draw along streets
+            // Define parking zones - CORRECTED for actual street locations
             const parkingZones = [
                 {
                     name: 'Zone 1: Park Ave (Best - Right in Front)',
                     color: '#4CAF50',
                     path: [
-                        { lat: 33.639870, lng: -117.921107 },  // 18th & Park
-                        { lat: 33.641621, lng: -117.921107 },  // Venue location
-                        { lat: 33.643502, lng: -117.921107 }   // 19th & Park
+                        { lat: 33.640259, lng: -117.922051 },  // 18th & Park
+                        { lat: 33.641959, lng: -117.922051 },  // Venue location
+                        { lat: 33.643659, lng: -117.922051 }   // 19th & Park
                     ]
                 },
                 {
                     name: 'Zone 2: W 18th Street',
                     color: '#2196F3',
                     path: [
-                        { lat: 33.640721, lng: -117.922200 },  // West end of 18th
-                        { lat: 33.640721, lng: -117.921107 },  // Park Ave intersection
-                        { lat: 33.640721, lng: -117.920007 }   // East to Monrovia
+                        { lat: 33.640259, lng: -117.923200 },  // West end
+                        { lat: 33.640259, lng: -117.922051 },  // Park Ave
+                        { lat: 33.640259, lng: -117.920900 }   // East end at Monrovia
                     ]
                 },
                 {
                     name: 'Zone 3: W 19th Street', 
                     color: '#FF9800',
                     path: [
-                        { lat: 33.642521, lng: -117.921107 },  // Park Ave intersection
-                        { lat: 33.642521, lng: -117.922200 }   // West end
+                        { lat: 33.643659, lng: -117.922051 },  // Park Ave
+                        { lat: 33.643659, lng: -117.923200 }   // West end
                     ]
                 },
                 {
                     name: 'Zone 4: Monrovia Ave',
                     color: '#9C27B0',
                     path: [
-                        { lat: 33.640721, lng: -117.920007 },  // 18th St intersection
-                        { lat: 33.642521, lng: -117.920007 }   // 19th St intersection
+                        { lat: 33.640259, lng: -117.920900 },  // 18th St
+                        { lat: 33.643659, lng: -117.920900 }   // 19th St
                     ]
                 }
             ];
