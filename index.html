@@ -1170,6 +1170,37 @@
                 }
             });
             
+            // Draw rectangle around AirGarage paid parking lot
+            const airGarageRectangle = new google.maps.Rectangle({
+                strokeColor: '#FFD700',
+                strokeOpacity: 0.8,
+                strokeWeight: 3,
+                fillColor: '#FFD700',
+                fillOpacity: 0.2,
+                map: map,
+                bounds: {
+                    north: 33.6425687,  // North edge
+                    south: 33.6422313,  // South edge  
+                    east: -117.9230456,  // East edge
+                    west: -117.9233544   // West edge
+                }
+            });
+            
+            // Add click listener for AirGarage info
+            airGarageRectangle.addListener('click', () => {
+                const airGarageInfo = new google.maps.InfoWindow({
+                    content: `<div style="padding: 10px;">
+                        <h4 style="margin: 0 0 10px 0;">AirGarage Paid Parking</h4>
+                        <p style="margin: 5px 0;"><strong>Address:</strong> 420 W 19th Street</p>
+                        <p style="margin: 5px 0;"><strong>Distance:</strong> 0.3 miles (6-minute walk)</p>
+                        <p style="margin: 5px 0;"><strong>Hours:</strong> 24/7 access</p>
+                        <p style="margin: 5px 0;">💰 Daily rates apply - check AirGarage app</p>
+                    </div>`,
+                    position: { lat: 33.642400, lng: -117.923200 }
+                });
+                airGarageInfo.open(map);
+            });
+            
             // Define parking zones - streets are SOUTH and NORTH of venue
             // ACTUAL COORDINATES FROM GOOGLE MAPS API
             // W 18th & Park: 33.6398703, -117.9211038
@@ -1300,6 +1331,7 @@
                     <div style="margin: 5px 0;"><span style="background: #2196F3; padding: 2px 8px; color: white; border-radius: 3px;">Zone 2</span> W 18th Street</div>
                     <div style="margin: 5px 0;"><span style="background: #FF9800; padding: 2px 8px; color: white; border-radius: 3px;">Zone 3</span> W 19th Street</div>
                     <div style="margin: 5px 0;"><span style="background: #9C27B0; padding: 2px 8px; color: white; border-radius: 3px;">Zone 4</span> Venue Lot</div>
+                    <div style="margin: 5px 0;"><span style="background: #FFD700; padding: 2px 8px; color: black; border-radius: 3px;">💰</span> AirGarage (Paid)</div>
                 </div>
             `;
             map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
