@@ -1171,45 +1171,46 @@
             });
             
             // Define parking zones - streets are SOUTH and NORTH of venue
-            // ACTUAL LAYOUT: Park Ave and 19th St are STREETS (lines)
-            // Only parking lots are rectangles!
+            // Venue is at 33.6412813, -117.9217759
+            // Looking at satellite: Park Ave is about 0.0002 degrees west
+            // 19th St is about 0.0009 degrees north
             const parkingZones = [
                 {
                     name: 'Zone 1: Park Ave (Street parking)',
                     color: '#4CAF50',
                     path: [
-                        { lat: 33.6404215, lng: -117.9220215 },  // South end
-                        { lat: 33.6422847, lng: -117.9220215 }   // North end
+                        { lat: 33.6405000, lng: -117.9219759 },  // South end
+                        { lat: 33.6420000, lng: -117.9219759 }   // North end
                     ]
                 },
                 {
                     name: 'Zone 2: W 19th Street (Street parking)',
                     color: '#2196F3', 
                     path: [
-                        { lat: 33.6422154, lng: -117.9225643 },  // West end
-                        { lat: 33.6422154, lng: -117.9212846 }   // East end
+                        { lat: 33.6421813, lng: -117.9224000 },  // West end
+                        { lat: 33.6421813, lng: -117.9213000 }   // East end
                     ]
                 },
                 {
-                    name: 'Zone 3: Venue Parking Lot (Right next to venue)',
+                    name: 'Zone 3: Venue Parking Lot (East of building)',
                     color: '#FF9800',
                     path: [
-                        { lat: 33.6409827, lng: -117.9213547 },  // SE corner
-                        { lat: 33.6409827, lng: -117.9215937 },  // SW corner
-                        { lat: 33.6416284, lng: -117.9215937 },  // NW corner
-                        { lat: 33.6416284, lng: -117.9213547 },  // NE corner
-                        { lat: 33.6409827, lng: -117.9213547 }   // Close polygon
+                        { lat: 33.6410313, lng: -117.9214259 },  // SW corner
+                        { lat: 33.6410313, lng: -117.9212759 },  // SE corner
+                        { lat: 33.6415313, lng: -117.9212759 },  // NE corner
+                        { lat: 33.6415313, lng: -117.9214259 },  // NW corner
+                        { lat: 33.6410313, lng: -117.9214259 }   // Close polygon
                     ]
                 },
                 {
-                    name: 'Zone 4: Library Parking Lot',
+                    name: 'Zone 4: Library Parking Lot (North of venue)',
                     color: '#9C27B0',
                     path: [
-                        { lat: 33.6416743, lng: -117.9217142 },  // South edge
-                        { lat: 33.6416743, lng: -117.9219532 },  // West edge  
-                        { lat: 33.6420671, lng: -117.9219532 },  // North edge
-                        { lat: 33.6420671, lng: -117.9217142 },  // East edge
-                        { lat: 33.6416743, lng: -117.9217142 }   // Close polygon
+                        { lat: 33.6417313, lng: -117.9219259 },  // SW corner
+                        { lat: 33.6417313, lng: -117.9216759 },  // SE corner
+                        { lat: 33.6420813, lng: -117.9216759 },  // NE corner
+                        { lat: 33.6420813, lng: -117.9219259 },  // NW corner
+                        { lat: 33.6417313, lng: -117.9219259 }   // Close polygon
                     ]
                 }
             ];
