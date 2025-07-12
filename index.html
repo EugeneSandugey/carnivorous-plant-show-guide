@@ -1171,29 +1171,27 @@
             });
             
             // Define parking zones - streets are SOUTH and NORTH of venue
-            // ACTUAL PRECISE COORDINATES FROM SATELLITE VIEW
-            // Venue center: 33.6412813, -117.9217759
+            // ACTUAL LAYOUT: Park Ave and 19th St are STREETS (lines)
+            // Only parking lots are rectangles!
             const parkingZones = [
                 {
-                    name: 'Zone 1: Park Ave (Street parking in front)',
+                    name: 'Zone 1: Park Ave (Street parking)',
                     color: '#4CAF50',
                     path: [
-                        { lat: 33.6404215, lng: -117.9220215 },  // South on Park
-                        { lat: 33.6412813, lng: -117.9220215 },  // In front of venue
-                        { lat: 33.6422847, lng: -117.9220215 }   // North on Park
+                        { lat: 33.6404215, lng: -117.9220215 },  // South end
+                        { lat: 33.6422847, lng: -117.9220215 }   // North end
                     ]
                 },
                 {
-                    name: 'Zone 2: W 19th Street (North of venue)',
+                    name: 'Zone 2: W 19th Street (Street parking)',
                     color: '#2196F3', 
                     path: [
                         { lat: 33.6422154, lng: -117.9225643 },  // West end
-                        { lat: 33.6422154, lng: -117.9220215 },  // Park Ave intersection
                         { lat: 33.6422154, lng: -117.9212846 }   // East end
                     ]
                 },
                 {
-                    name: 'Zone 3: Venue Parking Lot (Best option)',
+                    name: 'Zone 3: Venue Parking Lot (Right next to venue)',
                     color: '#FF9800',
                     path: [
                         { lat: 33.6409827, lng: -117.9213547 },  // SE corner
@@ -1204,7 +1202,7 @@
                     ]
                 },
                 {
-                    name: 'Zone 4: Library Parking (1855 Park Ave)',
+                    name: 'Zone 4: Library Parking Lot',
                     color: '#9C27B0',
                     path: [
                         { lat: 33.6416743, lng: -117.9217142 },  // South edge
