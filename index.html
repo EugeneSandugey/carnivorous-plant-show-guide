@@ -160,35 +160,35 @@
                 </div>
 
                 <div class="parking-zone priority-2">
-                    <h4>Zone 2: W 19th Street (Very Good)</h4>
+                    <h4>Zone 2: W 18th Street (Very Good)</h4>
                     <ul>
-                        <li><strong>Location:</strong> 19th Street running east-west, north of venue</li>
+                        <li><strong>Location:</strong> 18th Street running east-west, south of venue</li>
                         <li><strong>Distance:</strong> 200-400 feet (1-minute walk)</li>
                         <li><strong>Spots:</strong> ~30-40 spaces on both sides</li>
-                        <li><strong>Near:</strong> Bank of America</li>
+                        <li><strong>Strategy:</strong> If Park Ave is full, head south to 18th</li>
                         <li><strong>Tip:</strong> Park closer to Park Ave for shorter walk</li>
                     </ul>
                 </div>
 
                 <div class="parking-zone priority-3">
-                    <h4>Zone 3: Venue Parking Lot (Most Convenient)</h4>
+                    <h4>Zone 3: W 19th Street (Good Alternative)</h4>
                     <ul>
-                        <li><strong>Location:</strong> Parking lot directly east of venue building</li>
-                        <li><strong>Distance:</strong> 0 feet - right at the venue!</li>
-                        <li><strong>Spots:</strong> ~30-40 dedicated spaces</li>
-                        <li><strong>Note:</strong> May fill up early on busy days</li>
-                        <li><strong>Best for:</strong> Those with heavy purchases or mobility needs</li>
+                        <li><strong>Location:</strong> 19th Street running east-west, north of venue</li>
+                        <li><strong>Distance:</strong> 300-500 feet (2-minute walk)</li>
+                        <li><strong>Spots:</strong> ~30-40 spaces on both sides</li>
+                        <li><strong>Near:</strong> Bank of America</li>
+                        <li><strong>Usually available:</strong> Even during peak times</li>
                     </ul>
                 </div>
 
                 <div class="parking-zone priority-4">
-                    <h4>Zone 4: Library Parking Lot (Backup Option)</h4>
+                    <h4>Zone 4: Venue Parking Lot (Quick Access)</h4>
                     <ul>
-                        <li><strong>Location:</strong> Donald Dungan Library at 1855 Park Ave</li>
-                        <li><strong>Distance:</strong> 300 feet (2-minute walk)</li>
-                        <li><strong>Spots:</strong> Large lot with many spaces</li>
-                        <li><strong>Note:</strong> North of the venue</li>
-                        <li><strong>Best for:</strong> Late arrivals, guaranteed parking</li>
+                        <li><strong>Location:</strong> East side of venue building</li>
+                        <li><strong>Distance:</strong> 0 feet - right there!</li>
+                        <li><strong>Spots:</strong> Limited parking lot</li>
+                        <li><strong>Note:</strong> May fill up quickly</li>
+                        <li><strong>Best for:</strong> Those with heavy purchases</li>
                     </ul>
                 </div>
             </div>
@@ -1171,46 +1171,45 @@
             });
             
             // Define parking zones - streets are SOUTH and NORTH of venue
-            // Venue is at 33.6412813, -117.9217759
-            // Looking at satellite: Park Ave is about 0.0002 degrees west
-            // 19th St is about 0.0009 degrees north
+            // Venue center is at 33.6412813, -117.9217759
+            // Based on Costa Mesa street grid:
+            // - W 18th St is at approximately 33.6401 (south)
+            // - W 19th St is at approximately 33.6424 (north)
+            // - Park Ave is at approximately -117.9221 (west)
             const parkingZones = [
                 {
                     name: 'Zone 1: Park Ave (Street parking)',
                     color: '#4CAF50',
                     path: [
-                        { lat: 33.6405000, lng: -117.9219759 },  // South end
-                        { lat: 33.6420000, lng: -117.9219759 }   // North end
+                        { lat: 33.6401000, lng: -117.9221000 },  // Near W 18th
+                        { lat: 33.6424000, lng: -117.9221000 }   // Near W 19th
                     ]
                 },
                 {
-                    name: 'Zone 2: W 19th Street (Street parking)',
+                    name: 'Zone 2: W 18th Street (South of venue)',
                     color: '#2196F3', 
                     path: [
-                        { lat: 33.6421813, lng: -117.9224000 },  // West end
-                        { lat: 33.6421813, lng: -117.9213000 }   // East end
+                        { lat: 33.6401000, lng: -117.9225000 },  // West end
+                        { lat: 33.6401000, lng: -117.9214000 }   // East end
                     ]
                 },
                 {
-                    name: 'Zone 3: Venue Parking Lot (East of building)',
+                    name: 'Zone 3: W 19th Street (North of venue)',
                     color: '#FF9800',
                     path: [
-                        { lat: 33.6410313, lng: -117.9214259 },  // SW corner
-                        { lat: 33.6410313, lng: -117.9212759 },  // SE corner
-                        { lat: 33.6415313, lng: -117.9212759 },  // NE corner
-                        { lat: 33.6415313, lng: -117.9214259 },  // NW corner
-                        { lat: 33.6410313, lng: -117.9214259 }   // Close polygon
+                        { lat: 33.6424000, lng: -117.9225000 },  // West end
+                        { lat: 33.6424000, lng: -117.9214000 }   // East end
                     ]
                 },
                 {
-                    name: 'Zone 4: Library Parking Lot (North of venue)',
+                    name: 'Zone 4: Venue Parking Lot (East side)',
                     color: '#9C27B0',
                     path: [
-                        { lat: 33.6417313, lng: -117.9219259 },  // SW corner
-                        { lat: 33.6417313, lng: -117.9216759 },  // SE corner
-                        { lat: 33.6420813, lng: -117.9216759 },  // NE corner
-                        { lat: 33.6420813, lng: -117.9219259 },  // NW corner
-                        { lat: 33.6417313, lng: -117.9219259 }   // Close polygon
+                        { lat: 33.6410000, lng: -117.9215000 },  // SW corner
+                        { lat: 33.6410000, lng: -117.9213000 },  // SE corner
+                        { lat: 33.6416000, lng: -117.9213000 },  // NE corner
+                        { lat: 33.6416000, lng: -117.9215000 },  // NW corner
+                        { lat: 33.6410000, lng: -117.9215000 }   // Close polygon
                     ]
                 }
             ];
@@ -1297,10 +1296,10 @@
             legend.innerHTML = `
                 <div style="background: white; padding: 10px; margin: 10px; border-radius: 5px; box-shadow: 0 2px 6px rgba(0,0,0,.3);">
                     <h4 style="margin: 0 0 10px 0;">Parking Zones</h4>
-                    <div style="margin: 5px 0;"><span style="background: #4CAF50; padding: 2px 8px; color: white; border-radius: 3px;">Zone 1</span> Park Ave (Street)</div>
-                    <div style="margin: 5px 0;"><span style="background: #2196F3; padding: 2px 8px; color: white; border-radius: 3px;">Zone 2</span> W 19th Street</div>
-                    <div style="margin: 5px 0;"><span style="background: #FF9800; padding: 2px 8px; color: white; border-radius: 3px;">Zone 3</span> Venue Parking</div>
-                    <div style="margin: 5px 0;"><span style="background: #9C27B0; padding: 2px 8px; color: white; border-radius: 3px;">Zone 4</span> Library Lot</div>
+                    <div style="margin: 5px 0;"><span style="background: #4CAF50; padding: 2px 8px; color: white; border-radius: 3px;">Zone 1</span> Park Ave</div>
+                    <div style="margin: 5px 0;"><span style="background: #2196F3; padding: 2px 8px; color: white; border-radius: 3px;">Zone 2</span> W 18th Street</div>
+                    <div style="margin: 5px 0;"><span style="background: #FF9800; padding: 2px 8px; color: white; border-radius: 3px;">Zone 3</span> W 19th Street</div>
+                    <div style="margin: 5px 0;"><span style="background: #9C27B0; padding: 2px 8px; color: white; border-radius: 3px;">Zone 4</span> Venue Lot</div>
                 </div>
             `;
             map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
